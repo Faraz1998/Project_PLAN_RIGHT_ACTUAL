@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button log, reg;
+    Button log, reg, deleteafter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         log = findViewById(R.id.login);
         reg = findViewById(R.id.register);
+        deleteafter = findViewById(R.id.Button);
 
         log.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),register.class));
+            }
+        });
+        deleteafter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Home.class));
             }
         });
     }
