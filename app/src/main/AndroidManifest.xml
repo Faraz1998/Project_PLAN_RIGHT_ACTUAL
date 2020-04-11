@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Notes"></activity>
+        <activity android:name=".AddNote"></activity>
+        <activity android:name=".EditNote" />
+        <activity android:name=".NoteDetails" />
+        <activity
+            android:name=".Notedetail"
+            android:label="@string/title_activity_notedetail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Notes" />
         <activity android:name=".Home" />
         <activity android:name=".Account" />
         <activity android:name=".emailreset" />

@@ -69,19 +69,14 @@ public class Account extends AppCompatActivity {
                     case R.id.account:
                         return true;
 
-//                        case R.id.details:
-//                            startActivity(new Intent(getApplicationContext(), Details.class));
-
-                    //return true;
-
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), Home.class));
                         return true;
 
-//                        case R.id.about:
-//                            startActivity(new Intent(getApplicationContext(), about.class));
-//                            overridePendingTransition(0, 0);
-//                            return true;
+                        case R.id.Notes:
+                            startActivity(new Intent(getApplicationContext(), Notes.class));
+                            overridePendingTransition(0, 0);
+                            return true;
 //
 //                        case R.id.Notes:
 //                            startActivity(new Intent(getApplicationContext(), Notes.class));

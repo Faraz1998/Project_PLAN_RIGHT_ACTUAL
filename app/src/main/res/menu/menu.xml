@@ -13,8 +13,8 @@
         android:title="Notes"
         android:icon="@drawable/ic_note_black_24dp"/>
     <item
-        android:id="@+id/about"
-        android:title="About"
+        android:id="@+id/addnote"
+        android:title="addnote"
         android:icon="@drawable/ic_info_black_24dp"/>
     <item
         android:id="@+id/account"
