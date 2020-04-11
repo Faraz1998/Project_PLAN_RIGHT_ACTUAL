@@ -1,9 +1,10 @@
-package com.example.project;
+package com.example.project.Notes_file;
 
 public class Note {
     private String title;
     private String content;
 
+    //this class is for retrieveing data from Firestore and is called on the main notes page
     public Note(){}
     public Note(String title,String content){
         this.title = title;

@@ -1,14 +1,16 @@
-package com.example.project;
+package com.example.project.Notes_file;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.example.project.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,21 +53,17 @@ public class EditNote extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String nTitle = editNoteTitle.getText().toString();
                 String nContent = editNoteContent.getText().toString();
-
                 if(nTitle.isEmpty() || nContent.isEmpty()){
-                    Toast.makeText(EditNote.this, "Can not Save note with Empty Field.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditNote.this, "Cannot Save note with Empty Field.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 spinner.setVisibility(View.VISIBLE);
-
                 // save note
 
+                //saves new edit of note to Firestore
                 DocumentReference docref = fStore.collection("notes").document(user.getUid()).collection("myNotes").document(data.getStringExtra("noteId"));
-
                 Map<String,Object> note = new HashMap<>();
                 note.put("title",nTitle);
                 note.put("content",nContent);

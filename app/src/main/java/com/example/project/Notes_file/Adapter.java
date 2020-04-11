@@ -1,4 +1,4 @@
-package com.example.project.model;
+package com.example.project.Notes_file;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.project.NoteDetails;
 import com.example.project.R;
 
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+    //list view arrays
     List<String> titles;
     List<String> content;
 
@@ -27,6 +27,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.content = content;
     }
 
+    //describes the item view within the recycler view
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,30 +35,29 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
-
-
+    //error on 'getColor' for new api, so just supressed
     @SuppressLint("NewApi")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.noteTitle.setText(titles.get(position));
         holder.noteContent.setText(content.get(position));
         final int code = getRandomColor();
-        holder.mCardView.setCardBackgroundColor(holder.view.getResources().getColor(code,null));
+        holder.mCardView.setCardBackgroundColor(holder.view.getResources().getColor(code,null));//sets background colour of note to respective colour on the Notes page
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), NoteDetails.class);
-                i.putExtra("title",titles.get(position));
-                i.putExtra("content",content.get(position));
-               i.putExtra("code",code);
-                v.getContext().startActivity(i);
+                //sends data to the 'NoteDetails' class for viewing
+                Intent send = new Intent(v.getContext(), NoteDetails.class);
+                send.putExtra("title",titles.get(position));
+                send.putExtra("content",content.get(position));
+                send.putExtra("code",code);
+                v.getContext().startActivity(send);
             }
         });
     }
 
     private int getRandomColor() {
-
         List<Integer> colorCode = new ArrayList<>();
         colorCode.add(R.color.blue);
         colorCode.add(R.color.yellow);

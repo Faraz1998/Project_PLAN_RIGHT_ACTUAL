@@ -1,18 +1,16 @@
-package com.example.project;
+package com.example.project.Notes_file;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import android.content.Intent;
-import android.os.Bundle;
 
+import com.example.project.Notes_file.EditNote;
+import com.example.project.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 
 import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
@@ -47,11 +45,11 @@ public class NoteDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(view.getContext(),EditNote.class);
-                i.putExtra("title",data.getStringExtra("title"));
-                i.putExtra("content",data.getStringExtra("content"));
-                i.putExtra("noteId",data.getStringExtra("noteId"));
-                startActivity(i);
+                Intent send = new Intent(view.getContext(), EditNote.class);
+                send.putExtra("title",data.getStringExtra("title"));
+                send.putExtra("content",data.getStringExtra("content"));
+                send.putExtra("noteId",data.getStringExtra("noteId"));
+                startActivity(send);
             }
         });
     }

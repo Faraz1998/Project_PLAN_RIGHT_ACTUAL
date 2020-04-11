@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.Login_Register_files;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project.Home;
+import com.example.project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,7 +39,7 @@ public class Login extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();//if user closes app without logging out, this code allows them to continue with their session still logged in.
         if(user!=null){
-            startActivity(new Intent(getApplicationContext(),Home.class));
+            startActivity(new Intent(getApplicationContext(), Home.class));
             this.finish();
         }
 
@@ -84,11 +86,11 @@ public class Login extends AppCompatActivity {
         });
     }
     public void openActivityRegister(){
-        Intent intent = new Intent(Login.this, register.class);
+        Intent intent = new Intent(Login.this, com.example.project.Login_Register_files.register.class);
         startActivity(intent);
     }
     public void openActivityforgotpass() {
-        Intent intent = new Intent(Login.this, forgotpass.class);
+        Intent intent = new Intent(Login.this, com.example.project.Login_Register_files.forgotpass.class);
         startActivity(intent);
     }
 }

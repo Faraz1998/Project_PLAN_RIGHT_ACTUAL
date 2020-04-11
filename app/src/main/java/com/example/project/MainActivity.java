@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.project.Login_Register_files.Login;
+import com.example.project.Login_Register_files.register;
+
 public class MainActivity extends AppCompatActivity {
     Button log, reg, deleteafter;
     @Override
@@ -21,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),register.class));
+                startActivity(new Intent(getApplicationContext(), register.class));
             }
         });
         deleteafter.setOnClickListener(new View.OnClickListener() {

@@ -1,18 +1,12 @@
-package com.example.project;
+package com.example.project.Notes_file;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -27,14 +21,15 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.project.model.Adapter;
+import com.example.project.Account;
+import com.example.project.Home;
+import com.example.project.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -83,36 +78,39 @@ public class Notes extends AppCompatActivity{
             }
         });
 
+        //querying the database to get data from the 'notes' collection
         Query query = fStore.collection("notes").document(user.getUid()).collection("myNotes").orderBy("title", Query.Direction.DESCENDING);
-        // query notes > uuid > mynotes
 
+//executes the above query
         FirestoreRecyclerOptions<Note> allNotes = new FirestoreRecyclerOptions.Builder<Note>()
                 .setQuery(query,Note.class)
                 .build();
 
 
         noteAdapter = new FirestoreRecyclerAdapter<Note, NoteViewHolder>(allNotes) {
-            @SuppressLint("NewApi")
+            @SuppressLint("NewApi")//for some api that don't need on 'getColor'
             @Override
             protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, final int i, @NonNull final Note note) {
-                noteViewHolder.noteTitle.setText(note.getTitle());
-                noteViewHolder.noteContent.setText(note.getContent());
-                final int code = getRandomColor();
+                noteViewHolder.noteTitle.setText(note.getTitle());//gets title of note from database
+                noteViewHolder.noteContent.setText(note.getContent());//gets the notes from database
+                final int code = getRandomColor();//generates a random colour
                 noteViewHolder.mCardView.setCardBackgroundColor(noteViewHolder.view.getResources().getColor(code,null));
                 final String docId = noteAdapter.getSnapshots().getSnapshot(i).getId();
 
                 noteViewHolder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(v.getContext(), NoteDetails.class);
-                        i.putExtra("title",note.getTitle());
-                        i.putExtra("content",note.getContent());
-                        i.putExtra("code",code);
-                        i.putExtra("noteId",docId);
-                        v.getContext().startActivity(i);
+                        //sends data to the 'NotesDetails' class for viewing
+                        Intent send = new Intent(v.getContext(), NoteDetails.class);
+                        send.putExtra("title",note.getTitle());
+                        send.putExtra("content",note.getContent());
+                        send.putExtra("code",code);
+                        send.putExtra("noteId",docId);
+                        v.getContext().startActivity(send);
                     }
                 });
 
+                //on Notes page, the 3 dots which allow to edit a note
                 ImageView menuIcon = noteViewHolder.view.findViewById(R.id.menuIcon);
                 menuIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -123,15 +121,16 @@ public class Notes extends AppCompatActivity{
                         menu.getMenu().add("Edit").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
-                                Intent i = new Intent(v.getContext(), EditNote.class);
-                                i.putExtra("title",note.getTitle());
-                                i.putExtra("content",note.getContent());
-                                i.putExtra("noteId",docId);
-                                startActivity(i);
+                                //sends data to the 'EditNotes' class for viewing
+                                Intent send = new Intent(v.getContext(), EditNote.class);
+                                send.putExtra("title",note.getTitle());
+                                send.putExtra("content",note.getContent());
+                                send.putExtra("noteId",docId);
+                                startActivity(send);
                                 return false;
                             }
                         });
-
+                        //on Notes page, the 3 dots which allow to delete a note
                         menu.getMenu().add("Delete").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
@@ -139,25 +138,19 @@ public class Notes extends AppCompatActivity{
                                 docRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        // note deleted
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Notes.this, "Error in Deleting Note.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Notes.this, "Error.", Toast.LENGTH_SHORT).show();//incase of an error occuring, user is told about it
                                     }
                                 });
                                 return false;
                             }
                         });
-
                         menu.show();
-
                     }
                 });
-
-
-
             }
 
             @NonNull
@@ -169,12 +162,12 @@ public class Notes extends AppCompatActivity{
         };
 
 
-
+//layout of the notes in the recyclerview
         noteLists = findViewById(R.id.RC);
         noteLists.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         noteLists.setAdapter(noteAdapter);
 
-
+//add a new note
         FloatingActionButton ADD = findViewById(R.id.fab);
         ADD.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,8 +176,8 @@ public class Notes extends AppCompatActivity{
                 finish();
             }
         });
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -192,13 +185,6 @@ public class Notes extends AppCompatActivity{
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.settings){
-            Toast.makeText(this, "Settings Menu is Clicked.", Toast.LENGTH_SHORT).show();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     public class NoteViewHolder extends RecyclerView.ViewHolder{
         TextView noteTitle,noteContent;
@@ -214,9 +200,8 @@ public class Notes extends AppCompatActivity{
             view = itemView;
         }
     }
-
+//generate a random colour for the note
     private int getRandomColor() {
-
         List<Integer> colorCode = new ArrayList<>();
         colorCode.add(R.color.blue);
         colorCode.add(R.color.yellow);
