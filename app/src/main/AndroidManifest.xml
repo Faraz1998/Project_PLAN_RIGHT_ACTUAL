@@ -16,7 +16,6 @@
         <activity android:name=".Notes_file.Notes" />
         <activity android:name=".Home" />
         <activity android:name=".Account" />
-        <activity android:name=".Login_Register_files.emailreset" />
         <activity android:name=".Login_Register_files.passwordreset" />
         <activity android:name=".Login_Register_files.forgotpass" />
         <activity android:name=".Login_Register_files.register" />

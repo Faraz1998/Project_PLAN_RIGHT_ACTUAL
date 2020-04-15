@@ -29,7 +29,6 @@
         android:layout_width="125dp"
         android:layout_height="43dp"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/button"
         android:capitalize="none"
         android:onClick="A"
@@ -45,7 +44,7 @@
         android:id="@+id/back"
         android:layout_width="125dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="452dp"
+        android:layout_marginBottom="136dp"
         android:background="@drawable/button"
         android:capitalize="none"
         android:onClick="A"
@@ -53,5 +52,7 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

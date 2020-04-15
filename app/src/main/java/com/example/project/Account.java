@@ -30,7 +30,6 @@ public class Account extends AppCompatActivity {
         setContentView(R.layout.activity_account);
 
         logged = findViewById(R.id.loggedinas);
-        update_email = findViewById(R.id.updemail);
         update_pass = findViewById(R.id.updpass);
 
         FAuth = FirebaseAuth.getInstance();
