@@ -38,8 +38,6 @@ public class Account extends AppCompatActivity {
 
         logged.setText("Logged in as: " + FUser.getEmail());//display user's email they are logged in with.
 
-        String email = FUser.getEmail();
-
 
         update_pass.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.content.Intent;
-
-import com.example.project.Notes_file.EditNote;
 import com.example.project.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.annotation.NonNull;
@@ -26,11 +24,7 @@ public class NoteDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_details);
-
-
         data = getIntent();
-
-
         TextView content = findViewById(R.id.noteDetailsContent);
         TextView title = findViewById(R.id.noteDetailsTitle);
         content.setMovementMethod(new ScrollingMovementMethod());
@@ -54,7 +48,7 @@ public class NoteDetails extends AppCompatActivity {
         });
     }
 
-
+//back pressed
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == android.R.id.home){

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.project.Account;
 import com.example.project.Home;
 import com.example.project.R;
@@ -46,7 +44,7 @@ public class Notes extends AppCompatActivity{
    FirestoreRecyclerAdapter<Note,NoteViewHolder> noteAdapter;
     FirebaseUser user;
     FirebaseAuth fAuth;
-    Adapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

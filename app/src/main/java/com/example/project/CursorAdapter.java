@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SimpleCursorAdapter;
 
-
-public class RemindersSimpleCursorAdapter extends SimpleCursorAdapter {
-    public RemindersSimpleCursorAdapter(RemindersActivity context, int layout, Cursor c, String[]
+//class to call the reminders from the database to the listview
+public class CursorAdapter extends SimpleCursorAdapter {
+    public CursorAdapter(Reminder context, int layout, Cursor c, String[]
             from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
     }
-    //to use a viewholder, you must override the following two methods and define a ViewHolder class
+    //overriding two methods in order to define viewholder
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         return super.newView(context, cursor, parent);
@@ -23,7 +23,7 @@ public class RemindersSimpleCursorAdapter extends SimpleCursorAdapter {
         ViewHolder holder = (ViewHolder) view.getTag();
         if (holder == null) {
             holder = new ViewHolder();
-            holder.colImp = cursor.getColumnIndexOrThrow(RemindersDbAdapter.COL_IMPORTANT);
+            holder.colImp = cursor.getColumnIndexOrThrow(DbAdapter.COL_IMPORTANT);
             holder.listTab = view.findViewById(R.id.row_tab);
             view.setTag(holder);
         }if (cursor.getInt(holder.colImp) > 0) {

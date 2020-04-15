@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RemindersActivity" />
+        <activity android:name=".Reminder" />
         <activity android:name=".Notes_file.AddNote" />
         <activity android:name=".Notes_file.EditNote" />
         <activity android:name=".Notes_file.NoteDetails" />
@@ -30,7 +30,7 @@
         </activity>
 
         <receiver
-            android:name=".Reminder"
+            android:name=".ReminderData"
             android:enabled="true"
             android:exported="true" />
     </application>

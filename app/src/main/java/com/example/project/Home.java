@@ -37,7 +37,7 @@ public class Home extends AppCompatActivity {
                             return true;
 
                         case R.id.Reminder:
-                            startActivity(new Intent(getApplicationContext(), RemindersActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Reminder.class));
                             overridePendingTransition(0, 0);
                             return true;
                        }

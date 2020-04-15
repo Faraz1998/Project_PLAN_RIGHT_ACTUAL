@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/dark_grey"
 
-    tools:context=".Reminder">
+    tools:context=".ReminderData">
 
     <ListView
         android:layout_width="match_parent"
