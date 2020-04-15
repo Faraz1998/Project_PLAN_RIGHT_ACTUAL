@@ -27,7 +27,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.content = content;
     }
 
-    //describes the item view within the recycler view
+    //describes the item view within the recycler view from the notes layout page
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -85,7 +85,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         TextView noteTitle,noteContent;
         View view;
         CardView mCardView;
-
+//view of the notes, in the cardview
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             noteTitle = itemView.findViewById(R.id.titles);

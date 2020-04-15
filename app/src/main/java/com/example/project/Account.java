@@ -66,7 +66,7 @@ public class Account extends AppCompatActivity {
                     case R.id.account:
                         return true;
 
-                    case R.id.home:
+                        case R.id.home:
                         startActivity(new Intent(getApplicationContext(), Home.class));
                         return true;
 
@@ -74,6 +74,11 @@ public class Account extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), Notes.class));
                             overridePendingTransition(0, 0);
                             return true;
+
+                        case R.id.Reminder:
+                        startActivity(new Intent(getApplicationContext(), Reminder.class));
+                        overridePendingTransition(0, 0);
+                        return true;
 //
 //                        case R.id.Notes:
 //                            startActivity(new Intent(getApplicationContext(), Notes.class));

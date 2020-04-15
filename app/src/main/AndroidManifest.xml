@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Notes_file.AddNote"></activity>
+        <activity android:name=".RemindersActivity" />
+        <activity android:name=".Notes_file.AddNote" />
         <activity android:name=".Notes_file.EditNote" />
         <activity android:name=".Notes_file.NoteDetails" />
-        <activity
-            android:name=".Notedetail"
-            android:label="@string/title_activity_notedetail"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Notes_file.Notes" />
         <activity android:name=".Home" />
         <activity android:name=".Account" />
@@ -31,6 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".Reminder"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

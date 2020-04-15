@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.project.Account;
 import com.example.project.Home;
 import com.example.project.R;
+import com.example.project.Reminder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -71,6 +72,11 @@ public class Notes extends AppCompatActivity{
 
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), Home.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.Reminder:
+                        startActivity(new Intent(getApplicationContext(), Reminder.class));
                         overridePendingTransition(0, 0);
                         return true;
                 }
