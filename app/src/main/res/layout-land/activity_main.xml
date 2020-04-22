@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     tools:context=".MainActivity">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="@color/white"
         android:text="Plan Right"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +24,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:selectAllOnFocus="true"
         android:text="Plan your days efficiently with Plan Right!"

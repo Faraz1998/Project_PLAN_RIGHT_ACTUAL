@@ -49,9 +49,7 @@ public class AddNote extends AppCompatActivity {
                     Toast.makeText(AddNote.this, "Title or Notes cannot be empty.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 progressBarSave.setVisibility(View.VISIBLE);//note will be saved
-
                 //saves the newly created note to firestore, to the respective user ids.
                 DocumentReference docref = fStore.collection("notes").document(user.getUid()).collection("myNotes").document();
                 Map<String,Object> note = new HashMap<>();

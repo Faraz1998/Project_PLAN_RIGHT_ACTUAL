@@ -23,19 +23,18 @@ public class CursorAdapter extends SimpleCursorAdapter {
         ViewHolder holder = (ViewHolder) view.getTag();
         if (holder == null) {
             holder = new ViewHolder();
-            holder.colImp = cursor.getColumnIndexOrThrow(DbAdapter.COL_IMPORTANT);
-            holder.listTab = view.findViewById(R.id.row_tab);
+            holder.colInd = cursor.getColumnIndexOrThrow(DbAdapter.COL_IMPORTANT);
+            holder.listview = view.findViewById(R.id.row_tab);
             view.setTag(holder);
-        }if (cursor.getInt(holder.colImp) > 0) {
-            holder.listTab.setBackgroundColor(context.getResources().getColor(R.color.orange));
+        }if (cursor.getInt(holder.colInd) > 0) {
+            holder.listview.setBackgroundColor(context.getResources().getColor(R.color.orange));
         } else {
-            holder.listTab.setBackgroundColor(context.getResources().getColor(R.color.green));
+            holder.listview.setBackgroundColor(context.getResources().getColor(R.color.green));
         }
     }
     static class ViewHolder {
-        //store the column index
-        int colImp;
-        //store the view
-        View listTab;
+        int colInd; //store column index
+        View listview; //store view
+
     }
 }

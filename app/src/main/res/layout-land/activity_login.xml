@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     tools:context=".Login_Register_files.Login">
 
     <EditText
         android:id="@+id/ETEmail"
-        android:layout_width="270dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
-
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/PWord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -38,12 +40,14 @@
 
     <EditText
         android:id="@+id/PWord"
-        android:layout_width="270dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/forgot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -54,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:textColor="@color/white"
         android:text="Forgot Password?"
         app:layout_constraintBottom_toTopOf="@+id/tvRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +68,7 @@
     <TextView
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Sign Up"

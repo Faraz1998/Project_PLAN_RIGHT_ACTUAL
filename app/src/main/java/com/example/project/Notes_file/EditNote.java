@@ -32,17 +32,12 @@ public class EditNote extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
-
         fStore = fStore.getInstance();
         spinner = findViewById(R.id.progressBar2);
         user = FirebaseAuth.getInstance().getCurrentUser();
-
         data = getIntent();
-
         editNoteContent = findViewById(R.id.editNoteContent);
         editNoteTitle = findViewById(R.id.editNoteTitle);
-
-
         String noteTitle = data.getStringExtra("title");
         String noteContent = data.getStringExtra("content");
 
@@ -86,7 +81,5 @@ public class EditNote extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

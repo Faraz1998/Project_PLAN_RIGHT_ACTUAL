@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     tools:context="com.example.project.Notes_file.Notes">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,15 +15,15 @@
         android:background="#1A7FAA"
         app:itemTextColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/menu"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RC"
         android:layout_width="729dp"
-        android:layout_height="356dp"
+        android:layout_height="354dp"
         android:layout_marginEnd="74dp"
         android:layout_marginRight="74dp"
+        android:background="@color/dark_grey"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fab"

@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     tools:context=".Login_Register_files.forgotpass">
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="293dp"
+        android:layout_width="335dp"
         android:layout_height="44dp"
         android:layout_marginTop="120dp"
         android:ems="10"
@@ -17,9 +18,9 @@
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:textAllCaps="false"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/PWord"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.705" />
@@ -34,11 +35,9 @@
         android:onClick="A"
         android:text="Send link"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/send2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.018" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
         android:id="@+id/back"

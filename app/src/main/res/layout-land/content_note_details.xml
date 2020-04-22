@@ -13,7 +13,7 @@
         android:id="@+id/noteDetailsContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/yellow"
+        android:background="@color/dark_grey"
         android:isScrollContainer="true"
         android:padding="18dp"
         android:scrollbars="vertical"

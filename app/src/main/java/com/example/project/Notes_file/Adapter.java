@@ -34,15 +34,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_notes_layout,parent,false);
         return new ViewHolder(view);
     }
-
-    //error on 'getColor' for new api, so just supressed
     @SuppressLint("NewApi")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.noteTitle.setText(titles.get(position));
         holder.noteContent.setText(content.get(position));
-        final int code = getRandomColor();
-        holder.mCardView.setCardBackgroundColor(holder.view.getResources().getColor(code,null));//sets background colour of note to respective colour on the Notes page
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,29 +47,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 Intent send = new Intent(v.getContext(), NoteDetails.class);
                 send.putExtra("title",titles.get(position));
                 send.putExtra("content",content.get(position));
-                send.putExtra("code",code);
                 v.getContext().startActivity(send);
             }
         });
-    }
-
-    private int getRandomColor() {
-        List<Integer> colorCode = new ArrayList<>();
-        colorCode.add(R.color.blue);
-        colorCode.add(R.color.yellow);
-        colorCode.add(R.color.skyblue);
-        colorCode.add(R.color.lightPurple);
-        colorCode.add(R.color.lightGreen);
-        colorCode.add(R.color.gray);
-        colorCode.add(R.color.pink);
-        colorCode.add(R.color.red);
-        colorCode.add(R.color.greenlight);
-        colorCode.add(R.color.notgreen);
-
-        Random randomColor = new Random();
-        int number = randomColor.nextInt(colorCode.size());
-        return colorCode.get(number);
-
     }
 
     @Override

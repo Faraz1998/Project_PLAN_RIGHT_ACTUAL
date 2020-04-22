@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     tools:context=".Notes_file.EditNote">
 
     <androidx.appcompat.widget.Toolbar
@@ -31,8 +32,9 @@
 
     <EditText
         android:id="@+id/editNoteContent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="731dp"
+        android:layout_height="365dp"
+        android:background="@color/dark_grey"
         android:backgroundTint="@android:color/transparent"
         android:ems="10"
         android:gravity="start|top"

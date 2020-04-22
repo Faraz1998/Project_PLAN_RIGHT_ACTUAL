@@ -35,7 +35,7 @@ public class Account extends AppCompatActivity {
         FAuth = FirebaseAuth.getInstance();
         FUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        logged.setText("Logged in as: " + FUser.getEmail());//display user's email they are logged in with.
+        logged.setText("Logged in as: \n" + FUser.getEmail());//display user's email they are logged in with.
 
 
         update_pass.setOnClickListener(new View.OnClickListener() {

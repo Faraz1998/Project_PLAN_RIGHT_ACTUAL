@@ -41,7 +41,7 @@ import java.util.Random;
 public class Notes extends AppCompatActivity{
     RecyclerView noteLists;
     FirebaseFirestore fStore;
-   FirestoreRecyclerAdapter<Note,NoteViewHolder> noteAdapter;
+    FirestoreRecyclerAdapter<Note,NoteViewHolder> noteAdapter;
     FirebaseUser user;
     FirebaseAuth fAuth;
 
@@ -90,16 +90,14 @@ public class Notes extends AppCompatActivity{
                 .setQuery(query,Note.class)
                 .build();
 
-
         noteAdapter = new FirestoreRecyclerAdapter<Note, NoteViewHolder>(allNotes) {
-            @SuppressLint("NewApi")//for some api that don't need on 'getColor'
+            @SuppressLint("NewApi")//for some api that don't need
             @Override
             protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, final int i, @NonNull final Note note) {
                 noteViewHolder.noteTitle.setText(note.getTitle());//gets title of note from database
                 noteViewHolder.noteContent.setText(note.getContent());//gets the notes from database
-                final int code = getRandomColor();//generates a random colour
-                noteViewHolder.mCardView.setCardBackgroundColor(noteViewHolder.view.getResources().getColor(code,null));
-                final String docId = noteAdapter.getSnapshots().getSnapshot(i).getId();
+
+                 final String docId = noteAdapter.getSnapshots().getSnapshot(i).getId();
 
                 noteViewHolder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -108,7 +106,6 @@ public class Notes extends AppCompatActivity{
                         Intent send = new Intent(v.getContext(), NoteDetails.class);
                         send.putExtra("title",note.getTitle());
                         send.putExtra("content",note.getContent());
-                        send.putExtra("code",code);
                         send.putExtra("noteId",docId);
                         v.getContext().startActivity(send);
                     }
@@ -165,12 +162,10 @@ public class Notes extends AppCompatActivity{
             }
         };
 
-
 //layout of the notes in the recyclerview
         noteLists = findViewById(R.id.RC);
         noteLists.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         noteLists.setAdapter(noteAdapter);
-
 //add a new note
         FloatingActionButton ADD = findViewById(R.id.fab);
         ADD.setOnClickListener(new View.OnClickListener() {
@@ -181,55 +176,31 @@ public class Notes extends AppCompatActivity{
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.option_menu,menu);
+        inflater.inflate(R.menu.choosecolour,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-
     public class NoteViewHolder extends RecyclerView.ViewHolder{
         TextView noteTitle,noteContent;
         View view;
         CardView mCardView;
-
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
-
             noteTitle = itemView.findViewById(R.id.titles);
             noteContent = itemView.findViewById(R.id.content);
             mCardView = itemView.findViewById(R.id.noteCard);
             view = itemView;
         }
     }
-//generate a random colour for the note
-    private int getRandomColor() {
-        List<Integer> colorCode = new ArrayList<>();
-        colorCode.add(R.color.blue);
-        colorCode.add(R.color.yellow);
-        colorCode.add(R.color.skyblue);
-        colorCode.add(R.color.lightPurple);
-        colorCode.add(R.color.lightGreen);
-        colorCode.add(R.color.gray);
-        colorCode.add(R.color.pink);
-        colorCode.add(R.color.red);
-        colorCode.add(R.color.greenlight);
-        colorCode.add(R.color.notgreen);
-
-        Random randomColor = new Random();
-        int number = randomColor.nextInt(colorCode.size());
-        return colorCode.get(number);
-
-    }
-
+//populate data
     @Override
     protected void onStart() {
         super.onStart();
         noteAdapter.startListening();
     }
-
+//stop data from being loaded
     @Override
     protected void onStop() {
         super.onStop();
@@ -237,5 +208,4 @@ public class Notes extends AppCompatActivity{
             noteAdapter.stopListening();
         }
     }
-
 }

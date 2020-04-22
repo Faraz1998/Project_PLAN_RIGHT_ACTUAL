@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/dark_grey"
     tools:context=".Login_Register_files.register">
 
 
@@ -17,6 +17,7 @@
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:textAllCaps="false"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +31,7 @@
         android:ems="10"
         android:hint="Password "
         android:inputType="textPassword"
+        android:textColorHint="#FFFEFE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/ETPassword" />
 
     <Button
