@@ -3,14 +3,11 @@ package com.example.project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import com.example.project.Notes_file.Notes;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -57,7 +54,6 @@ public class Home extends AppCompatActivity {
             }
         });
     }
-
     public class slidetimer extends TimerTask {//time of transition
 
         @Override
