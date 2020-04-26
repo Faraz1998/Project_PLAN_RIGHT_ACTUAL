@@ -7,6 +7,23 @@
     android:background="@color/dark_grey"
     tools:context=".Home">
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/SShow"
+        android:layout_width="wrap_content"
+        android:layout_height="443dp"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="202dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="30dp" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -14,7 +31,9 @@
         android:layout_alignParentBottom="true"
         android:background="#1A7FAA"
         app:itemTextColor="@android:color/black"
-        app:menu="@menu/menu" />
+        app:menu="@menu/menu" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <TextView
         android:id="@+id/textView4"
@@ -25,14 +44,36 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="51dp"
-        android:layout_marginLeft="51dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
         android:gravity="center"
         android:text="Welcome!"
         android:textColor="@color/white"
         android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="364dp"
+        android:layout_height="128dp"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="491dp"
+        android:gravity="center"
+        android:text="Welcome to Plan Right! This application allows you to keep yourself more productive throughout the day. Take notes down easily or set reminders for a due date. "
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
 
 </RelativeLayout>

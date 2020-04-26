@@ -26,7 +26,7 @@
             android:inputType="textPersonName"
             android:text="@android:string/untitled"
             android:textColor="@color/white"
-            android:textColorHint="#FFFFFF"
+            android:textColorHint="@color/white"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -39,6 +39,8 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,13 +50,15 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveEditedNote"
-        android:layout_width="wrap_content"
+        android:layout_width="84dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
         app:backgroundTint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="30dp"
         app:srcCompat="@drawable/ic_save_black_24dp" />
 

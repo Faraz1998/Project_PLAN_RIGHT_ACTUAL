@@ -29,7 +29,7 @@ public class CursorAdapter extends SimpleCursorAdapter {
         }if (cursor.getInt(holder.colInd) > 0) {
             holder.listview.setBackgroundColor(context.getResources().getColor(R.color.orange));
         } else {
-            holder.listview.setBackgroundColor(context.getResources().getColor(R.color.green));
+            holder.listview.setBackgroundColor(context.getResources().getColor(R.color.lightGreen));
         }
     }
     static class ViewHolder {
